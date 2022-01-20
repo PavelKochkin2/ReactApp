@@ -1,21 +1,38 @@
 import css from './Dialogs.module.css'
+import DialogItem from './DialogItem/DialogItem'
+import Message from './Message/Message'
 
-const Dialogs = () =>{
-    return(
+const Dialogs = () => {
+
+    const dialogsData = [
+        { id: "1", name: "Alex" },
+        { id: "2", name: "Miha" },
+        { id: "3", name: "Toha" },
+        { id: "4", name: "Kroshka" }
+    ]
+
+    const dialogElements = dialogsData.map(dialog => <DialogItem id={dialog.id} name={dialog.name} key={dialog.id}></DialogItem>)
+
+    const messagesData = [
+        { message: "Hi" },
+        { message: "Hello" },
+        { message: "Go sex" },
+        { message: "WTF?!??!?" }
+    ]
+
+    const messageElements = messagesData.map(msg => <Message message={msg.message} key={msg.message}></Message>)
+
+    return (
         <div className={css.dialogs}>
+
             <div className={css.dialogItems}>
-                <div className={css.dialog + ' ' + css.active}>Alex</div>
-                <div className={css.dialog}>Miha</div>
-                <div className={css.dialog}>Toha</div>
-                <div className={css.dialog}>Baby</div>
+                {dialogElements}
             </div>
 
-             <div className={css.messages}>
-                 <div className={css.message}>Hello</div>
-                 <div className={css.message}>Hi</div>
-                 <div className={css.message}>Go sex</div>
-                 <div className={css.message}>Omg</div>
-             </div>
+            <div className={css.messages}>
+                {messageElements}
+            </div>
+
         </div>
     )
 }
