@@ -1,7 +1,6 @@
 const Post = (props) =>{
-    return(
-        <div>Post number: {props.number}</div>
-    )
+    debugger;
+    return <div>{props.postText.text} </div>
 }
 
 export default Post;
