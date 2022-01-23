@@ -1,7 +1,7 @@
 import MyPosts from './MyPosts/MyPosts.jsx'
 import css from './Profile.module.css'
 const Profile = (props) => {
-    debugger;
+    
     return (
         <div>
             <div>
