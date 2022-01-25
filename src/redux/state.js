@@ -1,5 +1,4 @@
-import {rerenderEntireApp} from '../render'
-
+let rerenderEntireApp = () =>{}
 
 let state = {
     dialogComponentData: {
@@ -31,6 +30,10 @@ export let addPost = (text) => {
     let post = { text: text };
     state.profileComponentData.posts.push(post);
     rerenderEntireApp(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireApp = observer;
 }
 
 export default state;
