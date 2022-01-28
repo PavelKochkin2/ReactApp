@@ -1,39 +1,43 @@
-let rerenderEntireApp = () =>{}
+let store = {
+    _notifySubsrcribers(){ },
+    _state: {
+        dialogComponentData: {
+            dialogsData: [
+                { id: "1", name: "Alex" },
+                { id: "2", name: "Miha" },
+                { id: "3", name: "Toha" },
+                { id: "4", name: "Kroshka" }
+            ],
 
-let state = {
-    dialogComponentData: {
-        dialogsData: [
-            { id: "1", name: "Alex" },
-            { id: "2", name: "Miha" },
-            { id: "3", name: "Toha" },
-            { id: "4", name: "Kroshka" }
-        ],
-
-        messagesData: [
-            { message: "Hi" },
-            { message: "Hello" },
-            { message: "Go sex" },
-            { message: "WTF?!??!?" }
-        ]
+            messagesData: [
+                { message: "Hi" },
+                { message: "Hello" },
+                { message: "Go sex" },
+                { message: "WTF?!??!?" }
+            ]
+        },
+        profileComponentData: {
+            posts: [
+                { text: "first post baby" },
+                { text: "don't like" },
+                { text: "how are you?" }
+            ]
+        }
     },
-    profileComponentData: {
-        posts: [
-            { text: "first post baby" },
-            { text: "don't like" },
-            { text: "how are you?" }
-        ]
+    getState() {
+        debugger;
+        return this._state;
+    },
+    addPost (text){
+        debugger;
+        let post = { text: text };
+        this._state.profileComponentData.posts.push(post);
+        this._notifySubsrcribers(this._state);
+    },
+    subscribe(observer){
+        this._notifySubsrcribers = observer;
     }
 }
 
-export let addPost = (text) => {
-    debugger;
-    let post = { text: text };
-    state.profileComponentData.posts.push(post);
-    rerenderEntireApp(state);
-}
-
-export const subscribe = (observer) => {
-    rerenderEntireApp = observer;
-}
-
-export default state;
+window.store = store;
+export default store;

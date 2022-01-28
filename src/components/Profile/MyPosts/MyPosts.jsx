@@ -6,6 +6,7 @@ const MyPosts = (props) => {
     let postInputRef = React.createRef();
 
     let addPost = () => {
+        debugger;
         let text = postInputRef.current.value;
 
         props.addPost(text);

@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import state, { addPost, subscribe } from './redux/state'
+import store from './redux/state'
 
-export let rerenderEntireApp = (state) => {
+let rerenderEntireApp = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
 
-                <App globalState={state} addPost={addPost} />
+                <App globalState={state} addPost={store.addPost.bind(store)} />
             </BrowserRouter>
 
         </React.StrictMode>,
@@ -18,6 +18,6 @@ export let rerenderEntireApp = (state) => {
     );
 }
 
-rerenderEntireApp(state);
+rerenderEntireApp(store.getState());
 
-subscribe(rerenderEntireApp);
+store.subscribe(rerenderEntireApp); //index subscribes on changes in state
