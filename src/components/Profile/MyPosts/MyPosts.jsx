@@ -9,7 +9,7 @@ const MyPosts = (props) => {
         debugger;
         let text = postInputRef.current.value;
 
-        props.addPost(text);
+        props.dispatch({type: 'ADD-POST', text: text});
     }
 
     return (

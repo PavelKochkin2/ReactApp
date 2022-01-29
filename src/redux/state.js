@@ -1,5 +1,6 @@
 let store = {
     _notifySubsrcribers(){ },
+    
     _state: {
         dialogComponentData: {
             dialogsData: [
@@ -24,19 +25,30 @@ let store = {
             ]
         }
     },
+
     getState() {
         debugger;
         return this._state;
     },
-    addPost (text){
+
+    _addPost (text){
         debugger;
         let post = { text: text };
         this._state.profileComponentData.posts.push(post);
         this._notifySubsrcribers(this._state);
     },
+
     subscribe(observer){
         this._notifySubsrcribers = observer;
+    },
+
+    dispatch(action){
+        if(action.type === 'ADD-POST'){
+                this._addPost(action.text);
+        }
+
     }
+
 }
 
 window.store = store;

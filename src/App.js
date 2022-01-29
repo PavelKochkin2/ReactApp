@@ -17,7 +17,8 @@ function App(props) {
           <Route path="/dialogs" element={<Dialogs data={props.globalState.dialogComponentData} />} />
           <Route 
               path="/profile" 
-              element={<Profile data={props.globalState.profileComponentData} addPost={props.addPost}/>} />
+              element={<Profile data={props.globalState.profileComponentData} 
+              dispatch={props.dispatch}/>} />
         </Routes>
       </div>
 

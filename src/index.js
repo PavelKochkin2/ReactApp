@@ -10,7 +10,8 @@ let rerenderEntireApp = (state) => {
         <React.StrictMode>
             <BrowserRouter>
 
-                <App globalState={state} addPost={store.addPost.bind(store)} />
+                <App globalState={state} 
+                dispatch={store.dispatch.bind(store)} />
             </BrowserRouter>
 
         </React.StrictMode>,

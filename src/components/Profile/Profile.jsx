@@ -7,7 +7,7 @@ const Profile = (props) => {
             <div>
                 avatar+description
             </div>
-            <MyPosts posts={props.data.posts} addPost = {props.addPost}/>
+            <MyPosts posts={props.data.posts} dispatch = {props.dispatch}/>
             <img className={css.avatar} src="https://vetliva.ru/upload/resize_cache/iblock/582/1170_640_2ad00f77cb8d50abfaeeae09efd4a5122/5824e36662a84f1350fcc661fe0ef9ee.jpg" />
         </div>)
 }
