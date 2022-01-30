@@ -1,6 +1,12 @@
+const addPostActionType = 'ADD-POST';
+
+export const createAddPostAction = (text) => {
+    return ({ type: addPostActionType, text: text })
+}
+
 let store = {
-    _notifySubsrcribers(){ },
-    
+    _notifySubsrcribers() { },
+
     _state: {
         dialogComponentData: {
             dialogsData: [
@@ -27,24 +33,23 @@ let store = {
     },
 
     getState() {
-        debugger;
         return this._state;
     },
 
-    _addPost (text){
+    _addPost(text) {
         debugger;
         let post = { text: text };
         this._state.profileComponentData.posts.push(post);
         this._notifySubsrcribers(this._state);
     },
 
-    subscribe(observer){
+    subscribe(observer) {
         this._notifySubsrcribers = observer;
     },
 
-    dispatch(action){
-        if(action.type === 'ADD-POST'){
-                this._addPost(action.text);
+    dispatch(action) {
+        if (action.type === addPostActionType) {
+            this._addPost(action.text);
         }
 
     }
