@@ -13,8 +13,7 @@ export const dialogsReducer = (state, action) => {
             state.newMessageText = '';
             return state;
 
-        default:
-            return state;
+        default: return state;
     }
 
 

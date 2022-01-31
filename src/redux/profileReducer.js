@@ -8,8 +8,6 @@ export const profileReducer = (state, action) => {
             state.posts.push(post);
             return state;
         default: return state;
-
-
     }
 }
 
