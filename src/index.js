@@ -9,11 +9,9 @@ let rerenderEntireApp = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-
                 <App globalState={state} 
                 dispatch={store.dispatch.bind(store)} />
             </BrowserRouter>
-
         </React.StrictMode>,
         document.getElementById('root')
     );

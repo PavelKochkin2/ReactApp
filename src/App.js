@@ -14,11 +14,13 @@ function App(props) {
 
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path="/dialogs" element={<Dialogs data={props.globalState.dialogComponentData} />} />
-          <Route 
-              path="/profile" 
-              element={<Profile data={props.globalState.profileComponentData} 
-              dispatch={props.dispatch}/>} />
+          <Route path="/dialogs" element={<Dialogs
+            data={props.globalState.dialogComponentData}
+            dispatch={props.dispatch} />} />
+          <Route
+            path="/profile"
+            element={<Profile data={props.globalState.profileComponentData}
+              dispatch={props.dispatch} />} />
         </Routes>
       </div>
 
