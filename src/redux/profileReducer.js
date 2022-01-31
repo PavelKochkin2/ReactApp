@@ -1,7 +1,6 @@
 //reducer takes state and action and returns modified state, based on the
 //given action. Reducer is a pure function
 export const profileReducer = (state, action) => {
-    debugger;
     switch (action.type) {
         case addPost:
             let post = { text: action.text };
