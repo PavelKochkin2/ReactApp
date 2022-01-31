@@ -1,19 +1,5 @@
-const addPost = 'ADD-POST';
-const updateNewMsgText = 'UPDATE_NEW_MESSAGE_TEXT'
-const addNewMsg = 'ADD_NEW_MESSAGE'
-
-
-export const createAddPostAction = (text) => {
-    return ({ type: addPost, text: text })
-}
-
-export const createUpdateNewMsgTextAction = (newMsgText) => {
-    return ({ type: updateNewMsgText, newMessageText: newMsgText })
-}
-
-export const createAddNewMessageAction = (msgText) => {
-    return ({ type: addNewMsg, msgText: msgText })
-}
+import { dialogsReducer } from './dialogsReducer'
+import { profileReducer } from './profileReducer'
 
 let store = {
     _notifySubsrcribers() { },
@@ -48,37 +34,17 @@ let store = {
         return this._state;
     },
 
-    _addPost(text) {
-        let post = { text: text };
-        this._state.profileComponentData.posts.push(post);
-        this._notifySubsrcribers(this._state);
-    },
-
-    _addNewMsg(msg) {
-        debugger;
-        let messages = this._state.dialogComponentData.messagesData;
-        let id = (messages.length) + 1;
-        messages.push({id: id , message: msg });
-        this._notifySubsrcribers(this._state);
-    },
-
     subscribe(observer) {
         this._notifySubsrcribers = observer;
     },
 
     dispatch(action) {
         debugger;
-        if (action.type === addPost) {
-            this._addPost(action.text);
-        }
-        else if (action.type === updateNewMsgText) {
-            this._state.dialogComponentData.newMessageText = action.newMessageText;
-            this._notifySubsrcribers(this._state);
-        }
-        else if (action.type === addNewMsg) {
-            debugger;
-            this._addNewMsg(action.msgText);
-        }
+
+        dialogsReducer(this._state.dialogComponentData, action);
+        profileReducer(this._state.profileComponentData, action);
+
+        this._notifySubsrcribers(this._state);
     }
 
 }
