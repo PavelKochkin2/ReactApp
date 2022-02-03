@@ -1,5 +1,21 @@
-export const dialogsReducer = (state, action) => {
-    debugger;
+let initialState = {
+    dialogsData: [
+        { id: "1", name: "Alex" },
+        { id: "2", name: "Miha" },
+        { id: "3", name: "Toha" },
+        { id: "4", name: "Kroshka" }
+    ],
+
+    messagesData: [
+        { id: "1", message: "Hi" },
+        { id: "2", message: "Hello" },
+        { id: "3", message: "Go sex" },
+        { id: "4", message: "WTF?!??!?" }
+    ],
+    newMessageText: ''
+};
+
+export const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case updateNewMsgText:

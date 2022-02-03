@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 function App(props) {
+  debugger;
   return (
     <div className='app-wrapper'>
       <Header />
@@ -16,7 +17,7 @@ function App(props) {
         <Routes>
           <Route path="/dialogs" element={<Dialogs
             data={props.globalState.dialogComponentData}
-            dispatch={props.dispatch} />} />
+          dispatch={props.dispatch} />} />
           <Route
             path="/profile"
             element={<Profile data={props.globalState.profileComponentData}
