@@ -1,26 +1,22 @@
-import Post from '../Post/Post'
 import React from 'react';
-import { createAddPostAction } from '../../../redux/profileReducer'
+import Post from '../Post/Post'
 
 const MyPosts = (props) => {
-
-    const postElements = props.posts.map(post => <Post postText={post} ></Post>)
     let postInputRef = React.createRef();
 
-    let addPost = () => {
+    let onAddPost = ()=>{
+        debugger;
         let text = postInputRef.current.value;
-        let action = createAddPostAction(text);
-        props.dispatch(action);
+        props.addPost(text);
     }
+    const postElements = props.posts.map(post => <Post postText={post} ></Post>)
 
     return (
-
-
         <div>
             <div>
                 New post
                 <textarea ref={postInputRef}></textarea>
-                <button onClick={addPost}>Add post</button>
+                <button onClick={onAddPost}>Add post</button>
             </div>
 
             <div>
