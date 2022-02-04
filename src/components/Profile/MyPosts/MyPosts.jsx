@@ -4,7 +4,7 @@ import Post from '../Post/Post'
 const MyPosts = (props) => {
     let postInputRef = React.createRef();
 
-    let onAddPost = ()=>{
+    let onAddPost = (event)=>{
         debugger;
         let text = postInputRef.current.value;
         props.addPost(text);

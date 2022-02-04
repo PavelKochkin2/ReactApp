@@ -1,4 +1,3 @@
-import MyPosts from './MyPosts/MyPosts.jsx'
 import MyPostsContainer from './MyPosts/MyPostsContainer.jsx';
 import css from './Profile.module.css'
 const Profile = (props) => {

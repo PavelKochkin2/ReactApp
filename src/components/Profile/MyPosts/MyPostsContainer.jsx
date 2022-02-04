@@ -1,4 +1,3 @@
-import Post from '../Post/Post'
 import React from 'react';
 import { createAddPostAction } from '../../../redux/profileReducer'
 import MyPosts from './MyPosts';
