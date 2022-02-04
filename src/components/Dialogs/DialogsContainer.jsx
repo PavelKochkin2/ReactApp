@@ -12,6 +12,7 @@ const DialogsContainer = (props) => {
     }
 
     let addNewMsg = (newMsgText) => {
+        debugger;
         let action = createAddNewMessageAction(newMsgText);
         props.store.dispatch(action);
     }
