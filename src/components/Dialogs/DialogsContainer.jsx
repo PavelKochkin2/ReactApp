@@ -1,32 +1,29 @@
+import { connect } from 'react-redux';
 import { createUpdateNewMsgTextAction } from '../../redux/dialogsReducer'
 import { createAddNewMessageAction } from '../../redux/dialogsReducer'
 import Dialogs from './Dialogs'
 
-const DialogsContainer = (props) => {
-
-    let state = props.store.getState();
-
-    let updateNewMessageText = (msgText) => {
-        let action = createUpdateNewMsgTextAction(msgText);
-        props.store.dispatch(action);
+let addStateToProps = (state) => {
+    return {
+        messagesData: state.dialogComponentData.messagesData,
+        dialogsData: state.dialogComponentData.dialogsData,
+        newMsgText: state.dialogComponentData.newMessageText
     }
-
-    let addNewMsg = (newMsgText) => {
-        debugger;
-        let action = createAddNewMessageAction(newMsgText);
-        props.store.dispatch(action);
-    }
-
-
-    return (
-        <Dialogs 
-        dialogsData={state.dialogComponentData.dialogsData} 
-        messagesData = {state.dialogComponentData.messagesData}
-        addNewMsg = {addNewMsg}
-        newMsgText = {state.dialogComponentData.newMessageText}
-        updateNewMessageText={updateNewMessageText}
-         />
-    )
 }
+
+let addCallbacksToProps = (dispatch) => {
+    return {
+        addNewMsg: (newMsgText) => {
+            let action = createAddNewMessageAction(newMsgText);
+            dispatch(action);
+        },
+        updateNewMessageText: (msgText) => {
+            let action = createUpdateNewMsgTextAction(msgText);
+            dispatch(action);
+        }
+    }
+}
+
+const DialogsContainer = connect(addStateToProps, addCallbacksToProps)(Dialogs);
 
 export default DialogsContainer;
