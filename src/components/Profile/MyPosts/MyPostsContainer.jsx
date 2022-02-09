@@ -17,6 +17,7 @@ let addCallbacksToProps = (dispatch) => {
     }
 }
 
+//creating container component using connect func
 const MyPostsContainer = connect(addStateToProps, addCallbacksToProps)(MyPosts);
 
 export default MyPostsContainer;
