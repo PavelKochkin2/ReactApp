@@ -8,6 +8,7 @@ const MyPosts = (props) => {
         debugger;
         let text = postInputRef.current.value;
         props.addPost(text);
+        postInputRef.current.value = '';
     }
     const postElements = props.posts.map(post => <Post postText={post} ></Post>)
 

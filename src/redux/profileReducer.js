@@ -11,11 +11,10 @@ let initialState = {
 export const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case addPost:
-            let stateCopy = {...state};
-            stateCopy.posts = [...state.posts];
-            let post = { text: action.text };
-            stateCopy.posts.push(post);
-            return stateCopy;
+            return{
+                ...state,
+                posts : [...state.posts, {text: action.text}]
+            }
         default: return state;
     }
 }
