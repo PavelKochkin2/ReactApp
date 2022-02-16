@@ -39,8 +39,6 @@ let store = {
     },
 
     dispatch(action) {
-        debugger;
-
         dialogsReducer(this._state.dialogComponentData, action);
         profileReducer(this._state.profileComponentData, action);
 

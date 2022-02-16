@@ -15,8 +15,9 @@ let mapDispatchToProps = (dispatch) => {
             let action = toggleFollowAC(userId);
             dispatch(action);
         },
-        getUsers: () => {
-            let action = getUsersAC();
+        getUsers: (users) => {
+            debugger
+            let action = getUsersAC(users);
             dispatch(action);
         }
     }

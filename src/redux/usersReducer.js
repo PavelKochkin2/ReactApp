@@ -1,16 +1,12 @@
 
 const photoUrl = "https://2ch.hk/b/thumb/183040196/15369578426600s.jpg"
-let initialState = {
 
+let initialState = {
     users: [
-        { id: 1, photoUrl: photoUrl, followed: true, fullName: 'Pavel Kochkin', status: 'top boy', location: { city: "Mogilev", country: "Belarus" } },
-        { id: 2, photoUrl: photoUrl, followed: false, fullName: 'Baby Bom', status: 'oh my gadbl', location: { city: "Kiev", country: "Ukraine" } },
-        { id: 3, photoUrl: photoUrl, followed: true, fullName: 'Big Penis', status: 'I do not like', location: { city: "Moscow", country: "Russia" } }
     ]
 };
 
 export const usersReducer = (state = initialState, action) => {
-    debugger
     switch (action.type) {
 
         case toggleFollow: {

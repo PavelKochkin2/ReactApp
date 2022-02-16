@@ -1,7 +1,6 @@
 import MyPostsContainer from './MyPosts/MyPostsContainer.jsx';
 import css from './Profile.module.css'
 const Profile = (props) => {
-    debugger;
     return (
         <div>
             <div>

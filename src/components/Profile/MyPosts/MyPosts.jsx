@@ -5,7 +5,7 @@ const MyPosts = (props) => {
     let postInputRef = React.createRef();
 
     let onAddPost = (event)=>{
-        debugger;
+        ;
         let text = postInputRef.current.value;
         props.addPost(text);
         postInputRef.current.value = '';
