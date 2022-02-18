@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Users from "./Users";
+import Users from "./Users.js";
 import { getUsersAC, toggleFollowAC } from '../../redux/usersReducer'
 
 let mapStateToProps = (state) => {
@@ -9,7 +9,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    
+
     return {
         toggleFollow: (userId) => {
             debugger
