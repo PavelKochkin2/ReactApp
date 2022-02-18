@@ -5,12 +5,13 @@ import React from 'react'
 
 class Users extends React.Component {
 
-    //const usersApiUrl =  'https://social-network.samuraijs.com/api/1.0/users';
-
     getUsers = () => {
 
-        if (this.props.users.length === 0) {
-            axios.get('https://social-network.samuraijs.com/api/1.0/users')
+        let haveNoUsers = this.props.users.length === 0;
+
+        if (haveNoUsers) {
+            axios
+                .get('https://social-network.samuraijs.com/api/1.0/users')
                 .then(response => {
                     debugger;
                     this.props.getUsers(response.data.items);
