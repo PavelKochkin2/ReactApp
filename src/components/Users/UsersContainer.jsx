@@ -12,12 +12,10 @@ let mapDispatchToProps = (dispatch) => {
 
     return {
         toggleFollow: (userId) => {
-            debugger
             let action = toggleFollowAC(userId);
             dispatch(action);
         },
         getUsers: (users) => {
-            debugger
             let action = getUsersAC(users);
             dispatch(action);
         }

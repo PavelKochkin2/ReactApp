@@ -10,14 +10,15 @@ class Users extends React.Component {
     getUsers = () => {
 
         if (this.props.users.length === 0) {
-            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-                debugger;
-                this.props.getUsers(response.data.items);
-            })
+            axios.get('https://social-network.samuraijs.com/api/1.0/users')
+                .then(response => {
+                    debugger;
+                    this.props.getUsers(response.data.items);
+                })
         }
     }
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.getUsers();
     }

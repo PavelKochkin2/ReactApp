@@ -10,7 +10,6 @@ export const usersReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case toggleFollow: {
-            debugger
             return {
                 ...state,
                 users: state.users.map(user => {
