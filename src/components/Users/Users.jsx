@@ -4,12 +4,13 @@ import css from './Users.module.css'
 
 let Users = (props) => {
 
-    if (props.users.length == 0) {
+    if (props.users.length === 0) {
         axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
             debugger;
             props.getUsers(response.data.items);
         })
     }
+
 
     return (<div>
         {
