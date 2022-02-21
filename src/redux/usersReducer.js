@@ -3,7 +3,10 @@ const photoUrl = "https://2ch.hk/b/thumb/183040196/15369578426600s.jpg"
 
 let initialState = {
     users: [
-    ]
+    ],
+    pageSize: 5,
+    totalUsersCount: 21,
+    currentPage: 2
 };
 
 export const usersReducer = (state = initialState, action) => {
@@ -25,12 +28,14 @@ export const usersReducer = (state = initialState, action) => {
         case getUsers: {
             return { ...state, users: [...state.users, ...action.users] }
         }
+        case setCurrentPage: {
+            return { ...state, currentPage: action.page }
+        }
         default: return state
     }
 }
 
-const toggleFollow = 'TOGGLE_FOLLOW'
-const getUsers = 'GET_USERS'
+
 
 export const toggleFollowAC = (userId) => {
     return ({ type: toggleFollow, userId: userId })
@@ -39,3 +44,12 @@ export const toggleFollowAC = (userId) => {
 export const getUsersAC = (users) => {
     return ({ type: getUsers, users: users })
 }
+
+export const setCurrentPageAC = (page) => {
+    return ({ type: setCurrentPage, page })
+}
+
+
+const toggleFollow = 'TOGGLE_FOLLOW'
+const getUsers = 'GET_USERS'
+const setCurrentPage = 'SET_CURRENT_PAGE'
