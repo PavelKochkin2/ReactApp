@@ -11,9 +11,10 @@ class Users extends React.Component {
 
         if (haveNoUsers) {
             axios
-                .get('https://social-network.samuraijs.com/api/1.0/users')
+                .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
                 .then(response => {
                     this.props.getUsers(response.data.items);
+                    this.props.setUsersTotalCount(response.data.totalCount)
                 })
         }
     }
@@ -22,9 +23,14 @@ class Users extends React.Component {
         this.getUsers();
     }
 
-    setCurrentPage(page) {
+    onPageChanged(page) {
         debugger
         this.props.setCurrentPage(page);
+        axios
+            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.getUsers(response.data.items);
+            })
     }
 
 
@@ -33,14 +39,16 @@ class Users extends React.Component {
         let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
         let pages = [];
         for (let i = 1; i <= pageCount; i++) {
-            pages.push(i);
+            if (pages.length < 10) {
+                pages.push(i);
+            }
         }
 
         return (
             <div>
                 <div>
                     {pages.map(page => {
-                        return <span key={page} onClick={() => this.setCurrentPage(page)} className={this.props.currentPage === page ? css.selectedPage : ''}>{page}</span>
+                        return <span key={page} onClick={() => this.onPageChanged(page)} className={this.props.currentPage === page ? css.selectedPage : ''}> {page} </span>
                     })}
                 </div>
 
